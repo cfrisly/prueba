@@ -62,7 +62,7 @@
 				</div>
 
 				<div class="col-md-3">
-					<label for="price">¿En descuento? </label>
+					<label for="indiscount">¿En descuento? </label>
 					<div class="input-group">
 						<div class="input-group-prepend">
 						    <span class="input-group-text" id="basic-addon1">
@@ -72,12 +72,43 @@
 						{!! Form::select('indiscount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
 					</div>
 				</div>
+
+				<div class="col-md-3">
+					<label for="discount">Descuento </label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+						    <span class="input-group-text" id="basic-addon1">
+						    	<i class="fas fa-percentage"></i>
+						    </span>
+						  </div>
+						{!! Form::number('discount', 0.00, ['class' => 'form-control', 'min' => '0.00', 'step' => 'any']) !!}
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<label for="quantity">Cantidad </label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+						    <span class="input-group-text" id="basic-addon1">
+						    	<i class="fas fa-list-ol"></i>
+						    </span>
+						  </div>
+						{!! Form::number('discount', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any']) !!}
+					</div>
+				</div>
+
 			</div>
 
 			<div class="row mtop16">
 				<div class="col-md-12">
 					<label for="content">Descripción</label>
-					{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+					{!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'editor']) !!}
+				</div>
+			</div>
+
+			<div class="row mtop16">
+				<div class="col-md-12">
+					{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
 				</div>
 			</div>
 			{!! Form::close() !!}
