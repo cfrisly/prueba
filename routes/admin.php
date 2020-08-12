@@ -10,6 +10,7 @@ Route::prefix('/admin')->group(function(){
 
 	// Categorias
 	Route::get('/categories', 'Admin\CategoriesController@getHome');
+	Route::post('/category/add', 'Admin\CategoriesController@postCategoryAdd');
 });
 
  ?>

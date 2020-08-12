@@ -15,8 +15,8 @@
 			<h2 class="title"><i class="fas fa-user-friends"></i> Usuarios</h2>
 		</div>
 
-		<div class="inside">
-			<table class="table">
+		<div class="inside row">
+			<table class="col-md-10 table">
 				<thead>
 					<tr>
 						<td>Id</td>
