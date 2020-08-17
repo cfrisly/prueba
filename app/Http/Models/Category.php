@@ -9,7 +9,7 @@ class Category extends Model
 {
 	use SoftDeletes;
 
-	protected $dates = ['deleted_ad'];
+	protected $dates = ['deleted_at'];
 	protected $tables = 'categories';
-	protected $hidden = ['created_ad', 'update_ad'];
+	protected $hidden = ['created_at', 'update_at'];
 }

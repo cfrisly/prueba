@@ -16,8 +16,10 @@ class CategoriesController extends Controller
 		$this->middleware('isadmin');
 	}
 
-	public function getHome(){
-		return view('admin.categories.home');
+	public function getHome($module){
+		$cats = Category::where('module', $module)->orderBy('name', 'Asc')->get();
+		$data = ['cats' => $cats];
+		return view('admin.categories.home', $data);
 	}
 
 	public function postCategoryAdd(Request $request){

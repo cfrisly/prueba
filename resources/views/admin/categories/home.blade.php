@@ -54,6 +54,49 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="col-md-9">
+			<div class="panel shadow">
+				<div class="header">
+					<h2 class="title"><i class="fas fa-folder-open"></i> Categorias	</h2>
+				</div>
+
+				<div class="inside">
+					<nav class="nav nav-pills nav-fill">
+						@foreach(getModulesArray() as $m => $k)
+						<a class="nav-link" href="{{ url('/admin/categories/'.$m) }}"><i class="fas fa-bars"></i> {{$k}}</a>
+						@endforeach
+					</nav>
+					<table class="table mtop16">
+						<thead>
+							<tr>
+								<td width="32"></td>
+								<td>Nombre</td>
+								<td width="140"></td>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($cats as $cat)
+							<tr>
+								<td>{!! htmlspecialchars_decode($cat->icono) !!}</td>
+								<td>{{ $cat->name }}</td>
+								<td>
+									<div class="opts">
+										<a href="{{ url('/admin/category/'.$cat->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Editar">
+											<i class="fas fa-pen"></i>
+										</a>
+										<a href="{{ url('/admin/category/'.$cat->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Eliminar">
+											<i class="fas fa-trash"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection
