@@ -78,4 +78,11 @@ class CategoriesController extends Controller
     	endif;
 	}
 
+	public function getCategoryDelete($id){
+		$c = Category::find($id);
+		if($c->delete()):
+    		return back()->with('message', 'Eliminado con exito')->with('typealert', 'success');
+    	endif;
+	}
+
 }
