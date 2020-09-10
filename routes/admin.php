@@ -11,6 +11,8 @@ Route::prefix('/admin')->group(function(){
 	// Categorias
 	Route::get('/categories/{module}', 'Admin\CategoriesController@getHome');
 	Route::post('/category/add', 'Admin\CategoriesController@postCategoryAdd');
+	Route::get('/category/{id}/edit', 'Admin\CategoriesController@getCategoryEdit');
+	Route::post('/category/{id}/edit', 'Admin\CategoriesController@postCategoryEdit');
 });
 
  ?>
