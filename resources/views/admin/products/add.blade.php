@@ -36,7 +36,15 @@
 				</div>
 
 				<div class="col-md-3">
-					<label for="name">Categoria</label>
+					<label for="category">Categoria</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="far fa-keyboard"></i>
+							</span>
+						</div>
+						{!! Form::select('category', $cats, 0, ['class' => 'custom-select']) !!}
+					</div>
 				</div>
 
 				<div class="col-md-3">
