@@ -7,6 +7,7 @@ Route::prefix('/admin')->group(function(){
 	//Module Products
 	Route::get('/products', 'Admin\ProductController@getHome');
 	Route::get('/products/add', 'Admin\ProductController@getProductAdd');
+	Route::post('/products/add', 'Admin\ProductController@postProductAdd');
 
 	// Categorias
 	Route::get('/categories/{module}', 'Admin\CategoriesController@getHome');

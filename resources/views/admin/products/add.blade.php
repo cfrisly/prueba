@@ -101,7 +101,7 @@
 						    	<i class="fas fa-list-ol"></i>
 						    </span>
 						  </div>
-						{!! Form::number('discount', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any']) !!}
+						{!! Form::number('stok', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any']) !!}
 					</div>
 				</div>
 

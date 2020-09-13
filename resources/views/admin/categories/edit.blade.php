@@ -46,7 +46,7 @@
 								<i class="far fa-keyboard"></i>
 							</span>
 						</div>
-						{!! Form::text('icon', $cat->icono, ['class' => 'form-control']) !!}
+						{!! Form::text('icon', $cat->Icono, ['class' => 'form-control']) !!}
 					</div>
 
 					{!! Form::submit('Guardar', ['class' => 'btn btn-success mtop16']) !!}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreteCategoriesTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,19 @@ class CreteCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Categories', function (Blueprint $table) {
-            Schema::create('categories', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('module');
+            $table->integer('status');
             $table->string('name');
             $table->string('slug');
-            $table->string('icono');
+            $table->integer('category_id');
+            $table->string('image');
+            $table->decimal('price', 11, 2);
+            $table->integer('in_discount');
+            $table->integer('discount');
+            $table->text('description');
             $table->softDeletes('deleted_at');
             $table->timestamps();
-        });
         });
     }
 
@@ -33,6 +36,6 @@ class CreteCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Categories');
+        Schema::dropIfExists('products');
     }
 }
