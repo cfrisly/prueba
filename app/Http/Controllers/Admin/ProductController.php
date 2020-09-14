@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Models\Category, App\Http\Models\Product;
-use Validator, Str;
+use Validator, Str, Config;
 
 class ProductController extends Controller
 {
@@ -45,18 +45,27 @@ class ProductController extends Controller
     	if($validator->fails()):
     		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withInput();
     	else:
+    		$path ='/'.date('Y-m-d');
+    		$fileExt = trim($request->file('img')->getClientOriginalExtension());
+    		$upload_path = Config::get('filesystems.disks.uploads.root');
+    		$name = Str::slug(str_replace($fileExt, '', $request->file('img')->getClientOriginalName()));
+    		$filename = rand(1,999).'-'.$name.'.'.$fileExt;
+
     		$product = new Product;
     		$product->status = '0';
     		$product->name = e($request->input('name'));
     		$product->slug = Str::slug($request->input('name'));
     		$product->category_id = $request->input('category');
-    		$product->image = "image.png";
+    		$product->image = $filename;
     		$product->price =$request->input('price');
     		$product->in_discount = $request->input('indiscount');
     		$product->discount = $request->input('discount');
     		$product->description = e($request->input('content'));
 
     		if($product->save()):
+    			if($request->hasFile('img')):
+    				$fl =$request->img->storeAs($path, $filename, 'uploads');
+    			endif;
     			return redirect('/admin/products')->with('message', 'Guardado con exito')->with('typealert', 'success');
     		endif;
     	endif;
