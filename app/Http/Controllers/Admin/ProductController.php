@@ -16,7 +16,9 @@ class ProductController extends Controller
 	}
 
 	public function getHome(){
-		return view('admin.products.home');
+		$products = Product::orderby('id', 'desc')->paginate(25);
+		$data = ['products' => $products];
+		return view('admin.products.home', $data);
 	}
 
 	public function getProductAdd(){
