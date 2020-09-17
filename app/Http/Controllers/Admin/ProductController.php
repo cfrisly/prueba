@@ -16,7 +16,7 @@ class ProductController extends Controller
 	}
 
 	public function getHome(){
-		$products = Product::orderby('id', 'desc')->paginate(25);
+		$products = Product::with(['cat'])->orderby('id', 'desc')->paginate(25);
 		$data = ['products' => $products];
 		return view('admin.products.home', $data);
 	}

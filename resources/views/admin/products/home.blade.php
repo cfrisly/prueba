@@ -18,7 +18,7 @@
 		<div class="inside">
 			<div class="btns">
 				<a href="{{ url('/admin/products/add') }}" class="btn btn-primary">
-					<i class="fas fa-plus"></i> Editar producto
+					<i class="fas fa-plus"></i> Agregar producto
 				</a>
 			</div>
 			<table class="table table-striped col-md-10 mtop16">
