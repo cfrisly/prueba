@@ -18,7 +18,7 @@
 		<div class="inside">
 			<div class="btns">
 				<a href="{{ url('/admin/products/add') }}" class="btn btn-primary">
-					<i class="fas fa-plus"></i> Agregar producto
+					<i class="fas fa-plus"></i> Editar producto
 				</a>
 			</div>
 			<table class="table table-striped col-md-10 mtop16">
@@ -37,7 +37,7 @@
 						<tr>
 							<td width="50">{{ $p->id }}</td>
 							<td width="64">
-								<a href=" {{ url('/uploads/'.$p->file_path.'/'.$p->image) }} ">
+								<a href=" {{ url('/uploads/'.$p->file_path.'/'.$p->image) }} " data-fancybox="gallery">
 									<img src=" {{ url('/uploads/'.$p->file_path.'/t_'.$p->image) }} " width="46" alt="">
 								</a>
 							</td>
