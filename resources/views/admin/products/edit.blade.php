@@ -134,12 +134,30 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="col-md-3">
-			<div class="panel-shadow">
+
+			<div class="panel shadow">
 				<div class="header">
 					<h2 class="title"><i class="far fa-image"></i> Imagen destacada</h2>
 					<div class="inside">
 						<img src=" {{ url('/uploads/'.$p->file_path.'/'.$p->image) }} " class="img-fluid" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="panel shadow mtop16">
+				<div class="header">
+					<h2 class="title"><i class="fas fa-photo-video"></i> Galeria</h2>
+				</div>
+				<div class="inside product_gallery">
+					{!! Form::open(['url' => '/admin/products/'.$p->id.'/gallery/add', 'files' => true, 'id' => 'form_product_gallery']) !!}
+					@csrf
+					{!! Form::file('file_image', ['id' => 'product_file_image', 'accept' => 'image/*', 'style' => 'display: none;', 'required']) !!}
+					{!! Form::close() !!}
+
+					<div class="tumb">
+						<a href="#" id="btn_product_file_image"><i class="fab fa-shopify"></i></a>
 					</div>
 				</div>
 			</div>

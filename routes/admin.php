@@ -10,6 +10,7 @@ Route::prefix('/admin')->group(function(){
 	Route::get('/products/{id}/edit', 'Admin\ProductController@getProductEdit');
 	Route::post('/products/add', 'Admin\ProductController@postProductAdd');
 	Route::post('/products/{id}/edit', 'Admin\ProductController@postProductEdit');
+	Route::post('/products/{id}/gallery/add', 'Admin\ProductController@postProductGalleryAdd');
 
 	// Categorias
 	Route::get('/categories/{module}', 'Admin\CategoriesController@getHome');
@@ -19,4 +20,4 @@ Route::prefix('/admin')->group(function(){
 	Route::get('/category/{id}/delete', 'Admin\CategoriesController@getCategoryDelete');
 });
 
- ?>
+?>
